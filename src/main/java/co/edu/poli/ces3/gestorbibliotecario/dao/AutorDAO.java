@@ -1,5 +1,6 @@
 package co.edu.poli.ces3.gestorbibliotecario.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AutorDAO {
@@ -9,16 +10,16 @@ public class AutorDAO {
     private String apellido;
     private String nacionalidad;
     private String fechaNacimiento;
-    private List<Integer> librosEscritos;
+    private ArrayList<Integer> librosEscritos;
 
 
-    public AutorDAO(int id, String nombre, String apellido, String nacionalidad, String fechaNacimiento, List<Integer> librosEscritos) {
+    public AutorDAO(int id, String nombre, String apellido, String nacionalidad, String fechaNacimiento, ArrayList<Integer> librosEscritos) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.nacionalidad = nacionalidad;
         this.fechaNacimiento = fechaNacimiento;
-        this.librosEscritos = librosEscritos;
+        this.librosEscritos = new ArrayList<>();
     }
 
     public int getId() {
@@ -61,15 +62,15 @@ public class AutorDAO {
         this.fechaNacimiento = fechaNacimiento;
     }
 
-    public List<Integer> getLibrosEscritos() {
+    public ArrayList<Integer> getLibrosEscritos() {
         return librosEscritos;
     }
 
-    public void setLibrosEscritos(List<Integer> librosEscritos) {
+    public void setLibrosEscritos(ArrayList<Integer> librosEscritos) {
         this.librosEscritos = librosEscritos;
     }
 
-//    Metodo para agregar libros
+    //    Metodo para agregar libros
     public void agregarLibro(int libroId) {
         this.librosEscritos.add(libroId);
     }
