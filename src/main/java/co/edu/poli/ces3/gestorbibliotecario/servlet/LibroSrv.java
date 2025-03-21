@@ -81,7 +81,7 @@ public class LibroSrv extends HttpServlet {
                     5,
                     "La Fiesta del Chivo",
                     2000,
-                    "Novela histórica",
+                    "Novela",
                     false,
                     528,
                     new String[]{"Español", "Francés", "Inglés"},
@@ -112,8 +112,35 @@ public class LibroSrv extends HttpServlet {
             System.out.println("⚠ No hay autores registrados en AutorSrv.");
         }
 
+
+        // los parametros que vamos a recibir
+        String filtroGenero = req.getParameter("genero");
+        String filtroDisponible = req.getParameter("disponible");
+
         for (LibroDAO libro : this.libros) {
             String autorNombreCompleto = "Autor no encontrado";
+
+
+
+            if (filtroGenero != null) {
+                filtroGenero = filtroGenero.trim().toLowerCase();
+
+                if (!libro.getGenero().toLowerCase().contains(filtroGenero)) {
+                    continue;
+                }
+            }
+
+            // ✅ Filtro por disponibilidad
+            if (filtroDisponible != null) {
+                boolean disponibleParam = Boolean.parseBoolean(filtroDisponible);
+                if (disponibleParam && !libro.isDisponible()) {
+                    continue;
+                }
+                if (!disponibleParam && libro.isDisponible()) {
+                    continue;
+                }
+            }
+
 
             for (AutorDAO autor : listaAutores) {
                 if (autor.getId() == libro.getAutorId()) {
