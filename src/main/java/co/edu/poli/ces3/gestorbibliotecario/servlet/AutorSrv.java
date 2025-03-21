@@ -32,12 +32,21 @@ public class AutorSrv extends HttpServlet {
                 "Colombiana",
                 "1927-03-06",
                 new ArrayList<>()
-        ));  this.autores.add(new AutorDAO(
+        ));
+        this.autores.add(new AutorDAO(
                 2,
                 "Mario",
                 "Vargas Llosa",
                 "Peruana",
                 "1936-03-28",
+                new ArrayList<>()
+        ));
+        this.autores.add(new AutorDAO(
+                3,
+                "Rafael",
+                "Pombo Rebolledo",
+                "Colombiana",
+                "1833-11-7",
                 new ArrayList<>()
         ));
 
@@ -54,7 +63,6 @@ public class AutorSrv extends HttpServlet {
 
         out.flush();
     }
-
 
 
 
