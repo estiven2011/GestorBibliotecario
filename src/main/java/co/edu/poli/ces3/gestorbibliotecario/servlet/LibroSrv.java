@@ -25,71 +25,75 @@ public class LibroSrv extends HttpServlet {
     public void init() throws ServletException {
 
         System.out.println("LibroServlet inicializado");
-
-        this.libros = new ArrayList();
-
-        this.libros.add(new LibroDAO(
-                1,
-                "Cien Años de Soledad",
-                1967,
-                "Realismo Mágico",
-                true,
-                417,
-                new String[]{"Español"},
-                1
-        ));
-
-        this.libros.add(new LibroDAO(
-                2,
-                "Conversación en la Catedral",
-                1969,
-                "Novela",
-                true,
-                600,
-                new String[]{"Español", "Inglés"},
-                2
-        ));
-
-        this.libros.add(new LibroDAO(
-                3,
-                "El Renacuajo Paseador",
-                1900,
-                "Cuento infantil",
-                true,
-                15,
-                new String[]{"Español"},
-                3
-        ));
-
-        this.libros.add(new LibroDAO(
-                4,
-                "La pobre viejecita",
-                1900,
-                "Cuento infantil",
-                true,
-                12,
-                new String[]{"Español"},
-                3
-        ));
-
-        this.libros.add(new LibroDAO(
-                5,
-                "La Fiesta del Chivo",
-                2000,
-                "Novela histórica",
-                false,
-                528,
-                new String[]{"Español", "Francés", "Inglés"},
-                2
-        ));
-
-
+        asegurarInicializacion();
         super.init();
     }
 
+    public static void asegurarInicializacion() {
+        if (libros == null || libros.isEmpty()) {
+            libros = new ArrayList();
+
+            libros.add(new LibroDAO(
+                    1,
+                    "Cien Años de Soledad",
+                    1967,
+                    "Realismo Mágico",
+                    true,
+                    417,
+                    new String[]{"Español"},
+                    1
+            ));
+
+            libros.add(new LibroDAO(
+                    2,
+                    "Conversación en la Catedral",
+                    1969,
+                    "Novela",
+                    true,
+                    600,
+                    new String[]{"Español", "Inglés"},
+                    2
+            ));
+
+            libros.add(new LibroDAO(
+                    3,
+                    "El Renacuajo Paseador",
+                    1900,
+                    "Cuento infantil",
+                    true,
+                    15,
+                    new String[]{"Español"},
+                    3
+            ));
+
+            libros.add(new LibroDAO(
+                    4,
+                    "La pobre viejecita",
+                    1900,
+                    "Cuento infantil",
+                    true,
+                    12,
+                    new String[]{"Español"},
+                    3
+            ));
+
+            libros.add(new LibroDAO(
+                    5,
+                    "La Fiesta del Chivo",
+                    2000,
+                    "Novela histórica",
+                    false,
+                    528,
+                    new String[]{"Español", "Francés", "Inglés"},
+                    2
+            ));
+        }
+    }
+
     public static ArrayList<LibroDAO> getLibros() {
+        asegurarInicializacion();
         return libros;
-    };
+    }
 
 
     @Override

@@ -17,47 +17,56 @@ import java.util.HashMap;
 @WebServlet(name="autorSrv", value="/autores")
 public class AutorSrv extends HttpServlet {
 
-    private static ArrayList<AutorDAO> autores;
+    public static ArrayList<AutorDAO> autores;
 
     @Override
     public void init() throws ServletException {
         System.out.println("AutorServlet inicializado");
 
-        this.autores = new ArrayList();
-
-
-        this.autores.add(new AutorDAO(
-                1,
-                "Gabriel",
-                "García Márquez",
-                "Colombiana",
-                "1927-03-06",
-                new ArrayList<>()
-        ));
-
-        this.autores.add(new AutorDAO(
-                2,
-                "Mario",
-                "Vargas Llosa",
-                "Peruana",
-                "1936-03-28",
-                new ArrayList<>()
-        ));
-
-        this.autores.add(new AutorDAO(
-                3,
-                "Rafael",
-                "Pombo Rebolledo",
-                "Colombiana",
-                "1833-11-07",
-                new ArrayList<>()
-        ));
 
         super.init();
     }
 
+
+    public static void asegurarInicializacion() {
+        if (autores == null || autores.isEmpty()) {
+            autores = new ArrayList();
+
+
+            autores.add(new AutorDAO(
+                    1,
+                    "Gabriel",
+                    "García Márquez",
+                    "Colombiana",
+                    "1927-03-06",
+                    new ArrayList<>()
+            ));
+
+            autores.add(new AutorDAO(
+                    2,
+                    "Mario",
+                    "Vargas Llosa",
+                    "Peruana",
+                    "1936-03-28",
+                    new ArrayList<>()
+            ));
+
+            autores.add(new AutorDAO(
+                    3,
+                    "Rafael",
+                    "Pombo Rebolledo",
+                    "Colombiana",
+                    "1833-11-07",
+                    new ArrayList<>()
+            ));
+
+        }
+    }
+
+
     //Metodo para obtener los autores globalmente
     public static ArrayList<AutorDAO> getAutores() {
+        asegurarInicializacion();
         return autores;
     }
 
