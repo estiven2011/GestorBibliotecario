@@ -130,7 +130,7 @@ public class LibroSrv extends HttpServlet {
                 }
             }
 
-            // ✅ Filtro por disponibilidad
+            // Filtro por disponibilidad
             if (filtroDisponible != null) {
                 boolean disponibleParam = Boolean.parseBoolean(filtroDisponible);
                 if (disponibleParam && !libro.isDisponible()) {

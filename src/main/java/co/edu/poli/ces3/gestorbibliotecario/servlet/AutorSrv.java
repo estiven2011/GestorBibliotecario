@@ -22,8 +22,7 @@ public class AutorSrv extends HttpServlet {
     @Override
     public void init() throws ServletException {
         System.out.println("AutorServlet inicializado");
-
-
+        asegurarInicializacion();
         super.init();
     }
 
