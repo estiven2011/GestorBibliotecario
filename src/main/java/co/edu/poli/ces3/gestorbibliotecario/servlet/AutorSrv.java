@@ -22,9 +22,9 @@ public class AutorSrv extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        System.out.println("LibroServlet inicializado");
+        System.out.println("AutorServelt inicializado");
 
-        this.autores = new ArrayList<>();
+        this.autores = new ArrayList();
         this.autores.add(new AutorDAO(
                 1,
                 "Gabriel",
