@@ -110,6 +110,7 @@ Durante el desarrollo del proyecto, se utilizaron los siguientes comandos de Git
 - `git checkout`: Realizar el cambio de rama
 - `git checkout -b <nombre de la rama>`: Creamos una nueva rama y nos pasamos a ella automaticamente
 - `git pull`: Trae y sincroniza los cambios desde el repositorio remoto.
+- `git pull`: Muestra un listado de las ramas que tenemos y en cual estamos trabajando
 - `git log`: Muestra el historial de commits realizados en el repositorio.
 - `git status`: Muestra el estado actual del repositorio, indicando qué archivos han sido modificados, cuáles están en el área de preparación (staging) y cuáles no están siendo seguidos (untracked).
 
